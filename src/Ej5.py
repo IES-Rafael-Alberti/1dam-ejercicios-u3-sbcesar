@@ -6,8 +6,9 @@ from borrarPantalla import borrarPantalla
 
 def mostraListaInversa():
     lista = list(range(1,11))
-    lista = lista[::-1]
-    print(", ".join(map(str, lista)))
+    copia = lista.copy()
+    copia.reverse()
+    print(", ".join(map(str, copia)))
 
 def main():
     borrarPantalla()

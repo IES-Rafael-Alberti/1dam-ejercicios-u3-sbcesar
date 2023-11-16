@@ -11,7 +11,6 @@ def pedirNumGanador() -> int:
 def listaPrimitiva():
     numerosGanadores = list(pedirNumGanador() for i in range(5))
     numerosGanadores.sort()
-    numerosGanadores = numerosGanadores[::-1]
     return numerosGanadores
 
 def main():

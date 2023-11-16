@@ -7,19 +7,19 @@ correspondientes notas introducidas por el usuario.
 
 from borrarPantalla import borrarPantalla
 
-def pedirNotas():
-    return float(input("Introduce tu nota: "))
+def listaNotas(asignaturas):
+    return list(float(input(f"Introduce tu nota de {asignatura}: ")) for asignatura in asignaturas)
 
-def mostrarAsignaturas():
-    notas = list(pedirNotas() for i in range(3))
-    for nota in notas:
-        return nota
+def mostrarAsigNota(asignaturas, notas):
+    for i in range(0, len(asignaturas)):
+        print(f"En {asignaturas[i]} has sacado {notas[i]}")
     
 def main():
     borrarPantalla()
+    
     asignaturas = ["Mates","Lengua","Fisica"]
-    for asignatura in asignaturas:
-        print(f"En {asignatura} has sacado un {mostrarAsignaturas()}")
+    notas = listaNotas(asignaturas)
+    mostrarAsigNota(asignaturas,notas)
 
 
 if __name__ == "__main__":

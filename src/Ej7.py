@@ -7,11 +7,12 @@ import string
 from borrarPantalla import borrarPantalla
 
 def eliminarMultiplos(lista) -> list:
-    for i in range(0,len(lista), 3):
+    q = len(lista) - 1
+    for i in range(0, q, 3):
         if i == 0:
             i += 2
             lista.pop(i)
-        elif i == lista[:-2]:
+        elif i == len(lista) - 2:
             return lista
         else:
             i += 3
@@ -21,11 +22,8 @@ def main():
     borrarPantalla()
 
     lista = list(string.ascii_lowercase)
-    print(", ".join(lista))
+    print(lista)
     print(eliminarMultiplos(lista))
-
-
-
 
 if __name__ == "__main__":
     main()
