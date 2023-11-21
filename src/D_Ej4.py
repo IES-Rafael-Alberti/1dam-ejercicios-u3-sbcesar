@@ -5,12 +5,16 @@ en formato dd de <mes> de aaaa donde <mes> es el nombre del mes.
 
 from borrarPantalla import borrarPantalla
 
+def preguntarFecha():
+    return dict(input("Introduce una fecha (dd/mm/yyyy)"))
 
+def cambioFormato(fecha:dict):
+    return fecha
 
 def main():
     borrarPantalla()
 
-    print("En progreso")
+    fecha = preguntarFecha()
 
     
 

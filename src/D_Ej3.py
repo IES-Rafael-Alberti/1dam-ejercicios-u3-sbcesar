@@ -26,7 +26,6 @@ def main():
     fruteria = {"platano":1.35,"manzana":0.80,"pera":0.85,"naranja":0.70}
 
     fruta = preguntarFruta()
-    
 
     try:
         print(calcularPrecioKg(fruteria,fruta))
