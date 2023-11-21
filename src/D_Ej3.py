@@ -6,13 +6,31 @@ Si la fruta no está en el diccionario debe mostrar un mensaje informando de ell
 
 from borrarPantalla import borrarPantalla
 
-def mostrarDiccionario():
-    return ""
+def preguntarFruta():
+    return input("Introduce una fruta: ")
+
+def preguntarKg():
+    return float(input("Introduce los kg: "))
+
+def calcularPrecioKg(fruteria,fruta):
+    if fruta in fruteria:
+        kg = preguntarKg()
+        coste = fruteria[fruta] * kg
+    else:
+        raise KeyError("*** Error *** No tenemos esa fruta en la frutería")
+    return coste
 
 def main():
+    borrarPantalla()
+
+    fruteria = {"platano":1.35,"manzana":0.80,"pera":0.85,"naranja":0.70}
+
+    fruta = preguntarFruta()
+    
+
     try:
-        print(mostrarDiccionario())
-    except NameError as e:
+        print(calcularPrecioKg(fruteria,fruta))
+    except KeyError as e:
         print(e)
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ def mostrarDivisa(monedas: dict):
     if divisa in monedas:
         return monedas[divisa]
     else:
-        raise NameError(" *** Error *** - La divisa no esta en el diccionario")
+        raise KeyError(" *** Error *** - La divisa no esta en el diccionario")
 
 def main():
     borrarPantalla()
@@ -23,7 +23,7 @@ def main():
 
     try:
         print(mostrarDivisa(monedas))
-    except NameError as e:
+    except KeyError as e:
         print(e)
 
 if __name__ == "__main__":
