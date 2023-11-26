@@ -12,7 +12,7 @@ Escriba la función conjunto_potencia(s) que reciba como parámetro un conjunto 
 """
 
 # TODO: Declara la función conjunto_potencia según la documentación que observas a continuación:
-def conjunto_potencia(conjunto_original: set) -> list:
+???
     """ Genera la lista de todos los subconjuntos posibles de un conjunto
     :param conjunto_original: conjunto del que debemos realizar la lista del conjunto potencia
     :type conjunto_original: set
@@ -20,10 +20,10 @@ def conjunto_potencia(conjunto_original: set) -> list:
     :rtype: list
     """
     # TODO: Inicializar la lista potencia con el conjunto vacío:
-    potencia = [set()]
+    ???
 
     # TODO: Recorrer los elementos del conjunto original:
-    for elemento in conjunto_original:
+    ???
 
         # Explicación de qué vamos a hacer en el bucle:
         # Crear nuevos subconjuntos agregando el elemento actual a los subconjuntos 
@@ -31,27 +31,27 @@ def conjunto_potencia(conjunto_original: set) -> list:
         # elemento del conjunto original y cada subconjunto de la lista potencia.
 
         # TODO: Primero creamos una lista vacía que se llame nuevos_subconjuntos:
-        nuevos_subconjuntos = []
+        ???
         # TODO: Ahora recorremos los subconjuntos de la lista potencia:
-        for subconjunto in potencia:
-            # 5. Por cada iteración, agregamos a la lista nuevos_subconjuntos
+        ???
+            # TODO: Por cada iteración, agregamos a la lista nuevos_subconjuntos
             # la unión del subconjunto y el elemento 
             # (que debemos introducirlo en un conjunto para la operación unión):
-            nuevos_subconjuntos.append(subconjunto | {elemento})
+            ???
         
         # TODO: Agregar los nuevos subconjuntos a la lista potencia:
-        potencia.extend(nuevos_subconjuntos)
+        ???
 
     # TODO: Retornar la lista creada con la lista de todos los subconjuntos
-    return potencia
+    ???
 
 
 def main():
     conjunto_original = {6, 1, 4}
     # TODO: Realiza la llamada a la función conjunto_potencia:
-    lara = conjunto_potencia(conjunto_original)
+    ???
     # TODO: Muestra la lista resultante del conjunto potencia en consola:
-    print(lara)
+    ???
 
 
 if __name__ == "__main__":

@@ -5,20 +5,19 @@ Escribir un programa que gestione las facturas pendientes de cobro de una empres
 from borrarPantalla import borrarPantalla
 
 def menu(facturas: dict):
-    numFactura = 0
-    coste = 0.0
-
+    cantidadCobrada = 0
     while True:
-        menu = int(input("Introduce una opción:\n 1. Añadir factura.\n 2. Pagar factura.\n 3. Terminar\n"))
+        print("Cantidad cobrada hasta el momento: ", cantidadCobrada)
+        print("Cantidad pendiente de cobro: ", sum(facturas.values()))
 
-        match menu:
+        opcion = int(input("Introduce una opción:\n 1. Añadir factura.\n 2. Pagar factura.\n 3. Terminar\n"))
+
+        match opcion:
             case 1:
-                numFactura += 1
-                coste = pedirCosteFactura()
-                agregarFactura(numFactura,coste,facturas)
+                agregarFactura(facturas)
                 print()
             case 2:
-                pagarFactura(facturas)
+                cantidadCobrada += pagarFactura(facturas)
                 print()
             case 3:
                 break
@@ -26,24 +25,30 @@ def menu(facturas: dict):
                 print("Introduce una de las opciones disponibles (1, 2, 3)")
 
 def pedirCosteFactura():
-    return float(input("Introduce el coste de la factura: "))
+    while True:
+        try:
+            return float(input("Introduce el coste de la factura: "))
+        except ValueError:
+            print("Por favor ingrese un valor numérico.")
 
-def agregarFactura(numFactura: int, coste: float, facturas: dict):
+def agregarFactura(facturas: dict):
+    numFactura = len(facturas) + 1
+    coste = pedirCosteFactura()
     facturas[numFactura] = coste
     print("Factura agregada correctamente")
-    print("Factura: ", facturas)
+    return coste
 
 def pagarFactura(facturas: dict):
-    print(facturas)
+    print("Facturas: ", facturas)
     facturaPagada = int(input("Introduce el número de la factura que desea borrar: "))
 
-    if facturaPagada in facturas.keys():
-        costoPagado = facturas[facturaPagada]
-        del facturas[facturaPagada]
-        print(f"La factura {facturaPagada}con coste {costoPagado} ha sido pagada correctamente")
+    if facturaPagada in facturas:
+        cantidadCobrada = facturas.pop(facturaPagada)
+        print(f"La factura {facturaPagada}con coste {cantidadCobrada} ha sido pagada correctamente")
+        return cantidadCobrada
     else:
         print(f"La factura {facturaPagada} no existe")
-    print(facturas)
+        return 0
 
 def main():
     borrarPantalla()
