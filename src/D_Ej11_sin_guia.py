@@ -15,24 +15,20 @@ def main():
     #Crea una lista con todo el contenido entre \n y \n
     listaDirectorio = directorio.split("\n")
 
-    #De la lista de todos los contenidos, crea otra con todas las claves del futuro diccionario
+    #De la lista de todos los contenidos, crea otra con todas las claves del futuro directorio
     clavesLista = listaDirectorio[0].split(";")
 
     diccionarioCliente = {}
-    infoCliente = {}
 
-    cont = 0
-    for palabra in listaDirectorio[1:]:
-        valoresLista = palabra.split(";")
+    
+    for i in range(1,len(listaDirectorio)):
         
-        for i in valoresLista[1:]:
-            print(i)
-        
-        """
-        diccionarioCliente[valoresLista[0]] = 
-        
-        diccionarioCliente[clavesLista[cont]] = nif"""
-        #print(infoCliente)
+        valoresLista = listaDirectorio[i].split(";")
 
+        diccionarioCliente[clavesLista[0]] = {clavesLista[1]:valoresLista[1],clavesLista[2]:valoresLista[2],clavesLista[3]:valoresLista[3],clavesLista[4]:valoresLista[4]}
+
+        print(diccionarioCliente)
+                
+        
 if __name__ == "__main__":
     main()
